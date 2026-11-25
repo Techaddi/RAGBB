@@ -1,0 +1,2697 @@
+[
+  {
+    "table": "dbo.Ad_Media",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_AdMediaId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_AdId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "media_type",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "url",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 500
+      },
+      {
+        "name": "thumbnail_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "sort_order",
+        "type": "tinyint",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_AdMediaId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_AdId",
+        "references_table": "dbo.Advertisements_Post",
+        "references_column": "Pk_AdId"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.Ad_Post",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_AdId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_CityId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_AreaId",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "title",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 100
+      },
+      {
+        "name": "description",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 500
+      },
+      {
+        "name": "image_url",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 500
+      },
+      {
+        "name": "link_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "contact_phone",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 15
+      },
+      {
+        "name": "duration_days",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "rejection_reason",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 255
+      },
+      {
+        "name": "reviewed_by",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "reviewed_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "starts_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "ends_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "is_deleted",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_AdId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      },
+      {
+        "column": "Fk_CityId",
+        "references_table": "dbo.City_Mst",
+        "references_column": "Pk_Cityid"
+      },
+      {
+        "column": "Fk_AreaId",
+        "references_table": "dbo.m_area",
+        "references_column": "PK_AreaId"
+      },
+      {
+        "column": "reviewed_by",
+        "references_table": "dbo.Admin_UserMst",
+        "references_column": "Pk_AdminId"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Pk_AdId": "1",
+        "user_id": "1",
+        "Fk_CityId": "2",
+        "Fk_AreaId": "8",
+        "title": "Sansaar Misthaan Bhandar",
+        "description": "This is  a new Brand of Misthan Bhandaar welcomming you for your service",
+        "image_url": "/uploads/ads/1/78d2f1badb42459cbb42b04c41f18578.jpg",
+        "link_url": "None",
+        "contact_phone": "9839400802",
+        "duration_days": "15",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "1",
+        "reviewed_at": "2026-10-17 14:30:36.838508",
+        "starts_at": "2026-10-17 14:30:36.838508",
+        "ends_at": "2026-11-01 14:30:36.838508",
+        "is_deleted": "False",
+        "created_at": "2026-10-17 13:56:24.664570"
+      },
+      {
+        "Pk_AdId": "2",
+        "user_id": "1",
+        "Fk_CityId": "1",
+        "Fk_AreaId": "1",
+        "title": "New Medical Store",
+        "description": "Here In bakhira A new Medical Store is Open near Sarakri Hospital bakhira Sant kabir Nagar",
+        "image_url": "/uploads/ads/1/6f0d3f8d4e1a497cae36a73de3bb4db4.jpg",
+        "link_url": "None",
+        "contact_phone": "9839400802",
+        "duration_days": "7",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "1",
+        "reviewed_at": "2026-10-17 14:39:44.516322",
+        "starts_at": "2026-10-17 14:39:44.516322",
+        "ends_at": "2026-10-24 14:39:44.516322",
+        "is_deleted": "False",
+        "created_at": "2026-10-17 14:38:59.545889"
+      },
+      {
+        "Pk_AdId": "3",
+        "user_id": "1",
+        "Fk_CityId": "1",
+        "Fk_AreaId": "1",
+        "title": "Sharda Pustak Mahal",
+        "description": "This is a general Store Having lots of books with your daily routine general things",
+        "image_url": "/uploads/ads/1/9e8880cbebbf4d9aabc7ec02489216f5.jpg",
+        "link_url": "None",
+        "contact_phone": "9839400802",
+        "duration_days": "7",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "1",
+        "reviewed_at": "2026-10-17 14:49:12.617653",
+        "starts_at": "2026-10-17 14:49:12.617653",
+        "ends_at": "2026-10-24 14:49:12.617653",
+        "is_deleted": "False",
+        "created_at": "2026-10-17 14:48:37.538810"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Ad_Price",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_PriceId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "duration_days",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "scope",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 4
+      },
+      {
+        "name": "amount_paise",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_PriceId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_PriceId": "1",
+        "duration_days": "7",
+        "scope": "CITY",
+        "amount_paise": "19900",
+        "is_active": "True"
+      },
+      {
+        "Pk_PriceId": "2",
+        "duration_days": "15",
+        "scope": "CITY",
+        "amount_paise": "34900",
+        "is_active": "True"
+      },
+      {
+        "Pk_PriceId": "3",
+        "duration_days": "30",
+        "scope": "CITY",
+        "amount_paise": "59900",
+        "is_active": "True"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Add_Plan_Mst",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_PlanId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "plan_name",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 100
+      },
+      {
+        "name": "price",
+        "type": "decimal",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "duration_days",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "radius_km",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "placement",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "max_creatives",
+        "type": "tinyint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_PlanId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_PlanId": "1",
+        "plan_name": "Starter - 7 days (Home)",
+        "price": "499.00",
+        "duration_days": "7",
+        "radius_km": "10",
+        "placement": "HOME",
+        "max_creatives": "1",
+        "is_active": "True",
+        "created_at": "2026-10-03 20:13:57.782104"
+      },
+      {
+        "Pk_PlanId": "2",
+        "plan_name": "Standard - 15 days (Home)",
+        "price": "899.00",
+        "duration_days": "15",
+        "radius_km": "25",
+        "placement": "HOME",
+        "max_creatives": "2",
+        "is_active": "True",
+        "created_at": "2026-10-03 20:13:57.782104"
+      },
+      {
+        "Pk_PlanId": "3",
+        "plan_name": "Premium - 30 days (Home+Reels)",
+        "price": "1999.00",
+        "duration_days": "30",
+        "radius_km": "None",
+        "placement": "BOTH",
+        "max_creatives": "3",
+        "is_active": "True",
+        "created_at": "2026-10-03 20:13:57.782104"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Admin_UserMst",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_AdminId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 100
+      },
+      {
+        "name": "mobile",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 15
+      },
+      {
+        "name": "email",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 150
+      },
+      {
+        "name": "password_hash",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 255
+      },
+      {
+        "name": "role",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "last_login_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_AdminId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_AdminId": "1",
+        "name": "Main Admin",
+        "mobile": "9999900001",
+        "email": "admin@localmedia.in",
+        "password_hash": "PBKDF2$SHA256$600000$RHTb5h7yvH2kHNDGNS367Q==$cnxazuEOJNBG5CtmdYNIKdHPKvgOIhsomTDjms1a8w4=",
+        "role": "ADMIN",
+        "is_active": "True",
+        "last_login_at": "2026-10-25 15:24:34.928797",
+        "created_at": "2026-10-17 14:16:25.239995"
+      },
+      {
+        "Pk_AdminId": "2",
+        "name": "Ad Moderator",
+        "mobile": "9999900002",
+        "email": "moderator@localmedia.in",
+        "password_hash": "PBKDF2$SHA256$600000$IkMI1/7PI9rCJ6UpkCGBSQ==$SLN/ZsQ614cCf95Gs2fZ3RPJR197efoz5nGpceZoA9Y=",
+        "role": "MODERATOR",
+        "is_active": "True",
+        "last_login_at": "None",
+        "created_at": "2026-10-17 14:16:25.930699"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Advertisements_Post",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_AdId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "advertiser_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "plan_id",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "title",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 150
+      },
+      {
+        "name": "description",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 1000
+      },
+      {
+        "name": "cta_type",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "cta_value",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "target_city_id",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "target_area_id",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "radius_km",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 20
+      },
+      {
+        "name": "rejection_reason",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 255
+      },
+      {
+        "name": "reviewed_by",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "reviewed_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "start_date",
+        "type": "date",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "end_date",
+        "type": "date",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "is_deleted",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_AdId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "advertiser_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      },
+      {
+        "column": "plan_id",
+        "references_table": "dbo.Add_Plan_Mst",
+        "references_column": "Pk_PlanId"
+      },
+      {
+        "column": "target_city_id",
+        "references_table": "dbo.City_Mst",
+        "references_column": "Pk_Cityid"
+      },
+      {
+        "column": "target_area_id",
+        "references_table": "dbo.m_area",
+        "references_column": "PK_AreaId"
+      },
+      {
+        "column": "reviewed_by",
+        "references_table": "dbo.Admin_UserMst",
+        "references_column": "Pk_AdminId"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.App_SettingMst",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_SettingId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "setting_key",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 500
+      },
+      {
+        "name": "setting_value",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 500
+      },
+      {
+        "name": "description",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 255
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_SettingId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_SettingId": "1",
+        "setting_key": "ad_every_n_items",
+        "setting_value": "5",
+        "description": "Show 1 ad after every N news items in feed",
+        "updated_at": "2026-10-03 20:12:11.705030"
+      },
+      {
+        "Pk_SettingId": "2",
+        "setting_key": "reel_max_seconds",
+        "setting_value": "60",
+        "description": "Maximum reel duration in seconds",
+        "updated_at": "2026-10-03 20:12:11.705030"
+      },
+      {
+        "Pk_SettingId": "3",
+        "setting_key": "reel_max_mb",
+        "setting_value": "50",
+        "description": "Maximum reel upload size in MB",
+        "updated_at": "2026-10-03 20:12:11.705030"
+      }
+    ]
+  },
+  {
+    "table": "dbo.City_Mst",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_Cityid",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_stateId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "city_name",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 100
+      },
+      {
+        "name": "latitude",
+        "type": "decimal",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "longitude",
+        "type": "decimal",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_Cityid"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_Cityid": "1",
+        "Fk_stateId": "26",
+        "city_name": "Khalilabad",
+        "latitude": "26.773000",
+        "longitude": "83.072000",
+        "is_active": "True"
+      },
+      {
+        "Pk_Cityid": "2",
+        "Fk_stateId": "26",
+        "city_name": "Mehdawal",
+        "latitude": "26.975100",
+        "longitude": "83.150000",
+        "is_active": "True"
+      },
+      {
+        "Pk_Cityid": "3",
+        "Fk_stateId": "26",
+        "city_name": "Maghar",
+        "latitude": "26.758300",
+        "longitude": "83.113600",
+        "is_active": "True"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Event_Ad",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_EventId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_AdId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "event_type",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 12
+      },
+      {
+        "name": "placement",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_EventId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_AdId",
+        "references_table": "dbo.Advertisements_Post",
+        "references_column": "Pk_AdId"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.m_area",
+    "description": "",
+    "columns": [
+      {
+        "name": "PK_AreaId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_CityId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "area_name",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 120
+      },
+      {
+        "name": "pincode",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 10
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "PK_AreaId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "PK_AreaId": "1",
+        "Fk_CityId": "1",
+        "area_name": "Bakhira Road",
+        "pincode": "272175",
+        "is_active": "True"
+      },
+      {
+        "PK_AreaId": "2",
+        "Fk_CityId": "1",
+        "area_name": "Station Road",
+        "pincode": "272175",
+        "is_active": "True"
+      },
+      {
+        "PK_AreaId": "3",
+        "Fk_CityId": "1",
+        "area_name": "Bank Road",
+        "pincode": "272175",
+        "is_active": "True"
+      }
+    ]
+  },
+  {
+    "table": "dbo.News_Category_Mst",
+    "description": "",
+    "columns": [
+      {
+        "name": "pk_NCategoryId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 80
+      },
+      {
+        "name": "icon_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "sort_order",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "pk_NCategoryId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "pk_NCategoryId": "1",
+        "name": "Local",
+        "icon_url": "None",
+        "sort_order": "1",
+        "is_active": "True"
+      },
+      {
+        "pk_NCategoryId": "2",
+        "name": "Politics",
+        "icon_url": "None",
+        "sort_order": "2",
+        "is_active": "True"
+      },
+      {
+        "pk_NCategoryId": "3",
+        "name": "Crime",
+        "icon_url": "None",
+        "sort_order": "3",
+        "is_active": "True"
+      }
+    ]
+  },
+  {
+    "table": "dbo.News_Comment",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_NCommentId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "FK_newsId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "comment_text",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 1000
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_NCommentId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "FK_newsId",
+        "references_table": "dbo.News_Post",
+        "references_column": "Pk_NewsId"
+      },
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.News_Like",
+    "description": "",
+    "columns": [
+      {
+        "name": "PK_NLiKid",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_newsID",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "PK_NLiKid",
+      "user_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_newsID",
+        "references_table": "dbo.News_Post",
+        "references_column": "Pk_NewsId"
+      },
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.News_Media",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_NewMediaId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_NewsId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "media_type",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "url",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 500
+      },
+      {
+        "name": "thumbnail_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "sort_order",
+        "type": "tinyint",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_NewMediaId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_NewsId",
+        "references_table": "dbo.News_Post",
+        "references_column": "Pk_NewsId"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Pk_NewMediaId": "1",
+        "Fk_NewsId": "1",
+        "media_type": "IMAGE",
+        "url": "/uploads/news/1/10426513e18a49bbbf6775889c6b32aa.png",
+        "thumbnail_url": "None",
+        "sort_order": "0"
+      },
+      {
+        "Pk_NewMediaId": "2",
+        "Fk_NewsId": "2",
+        "media_type": "IMAGE",
+        "url": "/uploads/news/3/11695453917a43a0bb6381b25e8e393e.jpg",
+        "thumbnail_url": "None",
+        "sort_order": "0"
+      },
+      {
+        "Pk_NewMediaId": "10002",
+        "Fk_NewsId": "10002",
+        "media_type": "IMAGE",
+        "url": "/uploads/news/1/cee6b7fcaf0a441f92447cf4234dadae.png",
+        "thumbnail_url": "None",
+        "sort_order": "0"
+      }
+    ]
+  },
+  {
+    "table": "dbo.News_Post",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_NewsId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_CategoryId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_CityId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_AreaId",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "headline",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 250
+      },
+      {
+        "name": "body",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": -1
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "rejection_reason",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 255
+      },
+      {
+        "name": "reviewed_by",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "reviewed_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "published_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "like_count",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "comment_count",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "is_deleted",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_NewsId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      },
+      {
+        "column": "Fk_CategoryId",
+        "references_table": "dbo.News_Category_Mst",
+        "references_column": "pk_NCategoryId"
+      },
+      {
+        "column": "Fk_CityId",
+        "references_table": "dbo.City_Mst",
+        "references_column": "Pk_Cityid"
+      },
+      {
+        "column": "Fk_AreaId",
+        "references_table": "dbo.m_area",
+        "references_column": "PK_AreaId"
+      },
+      {
+        "column": "reviewed_by",
+        "references_table": "dbo.Admin_UserMst",
+        "references_column": "Pk_AdminId"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Pk_NewsId": "1",
+        "user_id": "1",
+        "Fk_CategoryId": "3",
+        "Fk_CityId": "1",
+        "Fk_AreaId": "3",
+        "headline": "TestOne",
+        "body": "This is very bad one actually there was a accident happen near the taxi stand of bakhira with a car",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "None",
+        "reviewed_at": "None",
+        "published_at": "2026-10-11 17:14:40.655914",
+        "like_count": "0",
+        "comment_count": "0",
+        "is_deleted": "False",
+        "created_at": "2026-10-11 17:14:40.655914",
+        "updated_at": "2026-10-11 17:14:40.655914"
+      },
+      {
+        "Pk_NewsId": "2",
+        "user_id": "3",
+        "Fk_CategoryId": "1",
+        "Fk_CityId": "1",
+        "Fk_AreaId": "3",
+        "headline": "Bhandara in Mangal Bazara",
+        "body": "On Vocation of Navaratri Bhandara is Orgnized in Mangal bazar you all are welcom",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "None",
+        "reviewed_at": "None",
+        "published_at": "2026-10-17 15:06:52.376178",
+        "like_count": "0",
+        "comment_count": "0",
+        "is_deleted": "False",
+        "created_at": "2026-10-17 15:06:52.376178",
+        "updated_at": "2026-10-17 15:06:52.376178"
+      },
+      {
+        "Pk_NewsId": "10002",
+        "user_id": "1",
+        "Fk_CategoryId": "2",
+        "Fk_CityId": "1",
+        "Fk_AreaId": "1",
+        "headline": "This is secod one",
+        "body": "sdfsf dfweds ersdv sdv",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "None",
+        "reviewed_at": "None",
+        "published_at": "2026-10-25 15:21:06.528622",
+        "like_count": "0",
+        "comment_count": "0",
+        "is_deleted": "False",
+        "created_at": "2026-10-25 15:21:06.528622",
+        "updated_at": "2026-10-25 15:21:06.528622"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Order_Invoice",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_InvoiceId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "invoice_no",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 30
+      },
+      {
+        "name": "Fk_OrderId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "base_amount",
+        "type": "decimal",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "IGST",
+        "type": "decimal",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "SGST",
+        "type": "decimal",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "CGST",
+        "type": "decimal",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "tax_amount",
+        "type": "decimal",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "total_amount",
+        "type": "decimal",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "invoice_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_InvoiceId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_OrderId",
+        "references_table": "dbo.Order_Payment",
+        "references_column": "Pk_OrderId"
+      },
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.Order_Payment",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_OrderId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_Adid",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "fk_UserId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_PlanId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "amount",
+        "type": "decimal",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "currency",
+        "type": "char",
+        "nullable": false,
+        "max_length": 3
+      },
+      {
+        "name": "gateway",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 30
+      },
+      {
+        "name": "gateway_order_id",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 100
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_OrderId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_Adid",
+        "references_table": "dbo.Advertisements_Post",
+        "references_column": "Pk_AdId"
+      },
+      {
+        "column": "fk_UserId",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      },
+      {
+        "column": "Fk_PlanId",
+        "references_table": "dbo.Add_Plan_Mst",
+        "references_column": "Pk_PlanId"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.OTP_Request",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_OTPId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "mobile",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "otp_hash",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 255
+      },
+      {
+        "name": "purpose",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "expires_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "attempts",
+        "type": "tinyint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "is_verified",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "ip_address",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 45
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_OTPId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_OTPId": "1",
+        "mobile": "8115971723",
+        "otp_hash": "C944D06AD971842BD40E14C24AE64BFB274E1ACA8418919B7805CA0759DF13B1",
+        "purpose": "SIGNUP",
+        "expires_at": "2026-10-03 22:35:12.647520",
+        "attempts": "0",
+        "is_verified": "False",
+        "ip_address": "::1",
+        "created_at": "2026-10-03 22:30:12.659601"
+      },
+      {
+        "Pk_OTPId": "2",
+        "mobile": "8115971723",
+        "otp_hash": "55A1A9953668A7AEB2B0890537FBEE9AA99F4F525A0B307D092322C2116E5019",
+        "purpose": "SIGNUP",
+        "expires_at": "2026-10-03 22:40:35.085718",
+        "attempts": "0",
+        "is_verified": "False",
+        "ip_address": "::1",
+        "created_at": "2026-10-03 22:35:35.101530"
+      },
+      {
+        "Pk_OTPId": "3",
+        "mobile": "8115971723",
+        "otp_hash": "DDEAF9FA96C452B660DCA491D7ECD971659AE3335F5CA3A49823375ACA75AE96",
+        "purpose": "SIGNUP",
+        "expires_at": "2026-10-03 22:46:53.083967",
+        "attempts": "0",
+        "is_verified": "True",
+        "ip_address": "::1",
+        "created_at": "2026-10-03 22:41:53.083967"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Payment_Txn",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_PaymentId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "txn_id",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 40
+      },
+      {
+        "name": "ad_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "base_amount_paise",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "tax_paise",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "amount_paise",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "currency",
+        "type": "char",
+        "nullable": false,
+        "max_length": 3
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "razorpay_order_id",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 40
+      },
+      {
+        "name": "razorpay_payment_id",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 40
+      },
+      {
+        "name": "razorpay_signature",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 200
+      },
+      {
+        "name": "failure_reason",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 255
+      },
+      {
+        "name": "billing_name",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 100
+      },
+      {
+        "name": "billing_email",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 150
+      },
+      {
+        "name": "billing_phone",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "billing_address",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 250
+      },
+      {
+        "name": "billing_city",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 80
+      },
+      {
+        "name": "billing_pincode",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 6
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "paid_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_PaymentId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "ad_id",
+        "references_table": "dbo.Ad_Post",
+        "references_column": "Pk_AdId"
+      },
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Pk_PaymentId": "1",
+        "txn_id": "TXN20261024181046D99FA2",
+        "ad_id": "16",
+        "user_id": "10010",
+        "base_amount_paise": "900",
+        "tax_paise": "0",
+        "amount_paise": "900",
+        "currency": "INR",
+        "status": "PAID",
+        "razorpay_order_id": "order_Trq6zfvZMp7ppO",
+        "razorpay_payment_id": "pay_Trq77JKrazbXxs",
+        "razorpay_signature": "ab1df8d0c8cbb2ee2e415ae77ade2248cfdf5c97c2b78a52c6fb1e6057ec316e",
+        "failure_reason": "None",
+        "billing_name": "ANKIT KUMAR",
+        "billing_email": "2025ag05836@wilp.bits-pilani.ac.in",
+        "billing_phone": "7845129832",
+        "billing_address": "Noida Sector 62 Uttar Pradesh",
+        "billing_city": "Khalilabad",
+        "billing_pincode": "201309",
+        "created_at": "2026-10-24 18:10:53.151020",
+        "updated_at": "2026-10-24 18:15:04.930979",
+        "paid_at": "2026-10-24 18:15:04.930979"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Post_Notification",
+    "description": "",
+    "columns": [
+      {
+        "name": "PK_NotificationId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "type",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 40
+      },
+      {
+        "name": "title",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 150
+      },
+      {
+        "name": "body",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "ref_type",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 20
+      },
+      {
+        "name": "ref_id",
+        "type": "bigint",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "is_read",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "PK_NotificationId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.Reel_Comment",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_CommentId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_ReelId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_UserId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "comment_text",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 1000
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_CommentId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_ReelId",
+        "references_table": "dbo.Reel_Post",
+        "references_column": "Pk_ReelId"
+      },
+      {
+        "column": "Fk_UserId",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.Reel_hashTag",
+    "description": "",
+    "columns": [
+      {
+        "name": "Fk_ReelId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "hashtag",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 60
+      }
+    ],
+    "primary_keys": [
+      "Fk_ReelId",
+      "hashtag"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_ReelId",
+        "references_table": "dbo.Reel_Post",
+        "references_column": "Pk_ReelId"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Fk_ReelId": "1",
+        "hashtag": "it"
+      },
+      {
+        "Fk_ReelId": "2",
+        "hashtag": "laptop"
+      },
+      {
+        "Fk_ReelId": "1",
+        "hashtag": "project"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Reel_Likes",
+    "description": "",
+    "columns": [
+      {
+        "name": "PK_RLikeId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_ReelId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_UserId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "PK_RLikeId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_ReelId",
+        "references_table": "dbo.Reel_Post",
+        "references_column": "Pk_ReelId"
+      },
+      {
+        "column": "Fk_UserId",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": [
+      {
+        "PK_RLikeId": "1",
+        "Fk_ReelId": "1",
+        "Fk_UserId": "1",
+        "created_at": "2026-10-04 14:49:44.298476"
+      },
+      {
+        "PK_RLikeId": "2",
+        "Fk_ReelId": "2",
+        "Fk_UserId": "2",
+        "created_at": "2026-10-04 15:47:29.396915"
+      },
+      {
+        "PK_RLikeId": "4",
+        "Fk_ReelId": "3",
+        "Fk_UserId": "1",
+        "created_at": "2026-10-19 15:25:47.606636"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Reel_Post",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_ReelId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "fk_userid",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "video_url",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 500
+      },
+      {
+        "name": "hls_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "thumbnail_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "caption",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "duration_sec",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "fk_cityId",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "rejection_reason",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 255
+      },
+      {
+        "name": "reviewed_by",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "reviewed_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "view_count",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "like_count",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "comment_count",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "is_deleted",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_ReelId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "fk_userid",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      },
+      {
+        "column": "fk_cityId",
+        "references_table": "dbo.City_Mst",
+        "references_column": "Pk_Cityid"
+      },
+      {
+        "column": "reviewed_by",
+        "references_table": "dbo.Admin_UserMst",
+        "references_column": "Pk_AdminId"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Pk_ReelId": "1",
+        "fk_userid": "1",
+        "video_url": "/uploads/reels/1/16d7b054388d42f09ced7d1b2e7e3f4a.mp4",
+        "hls_url": "None",
+        "thumbnail_url": "/uploads/reels/1/thumbs/020b165d00f24cd5af2c337d882081cb.jpg",
+        "caption": "this is about project",
+        "duration_sec": "31",
+        "fk_cityId": "1",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "None",
+        "reviewed_at": "None",
+        "view_count": "10",
+        "like_count": "1",
+        "comment_count": "0",
+        "is_deleted": "False",
+        "created_at": "2026-10-04 14:49:22.873003",
+        "updated_at": "2026-10-04 14:49:22.873003"
+      },
+      {
+        "Pk_ReelId": "2",
+        "fk_userid": "2",
+        "video_url": "/uploads/reels/2/0a8dd43cfb7544f1877c4b7b5858949b.mp4",
+        "hls_url": "None",
+        "thumbnail_url": "/uploads/reels/2/thumbs/4eb734d0a6944a84acbc6e45794e3ad0.jpg",
+        "caption": "This is another One",
+        "duration_sec": "32",
+        "fk_cityId": "2",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "None",
+        "reviewed_at": "None",
+        "view_count": "10",
+        "like_count": "1",
+        "comment_count": "0",
+        "is_deleted": "False",
+        "created_at": "2026-10-04 15:46:10.054692",
+        "updated_at": "2026-10-04 15:46:10.054692"
+      },
+      {
+        "Pk_ReelId": "3",
+        "fk_userid": "1",
+        "video_url": "/uploads/reels/1/db12ed3fe19e45b08271d58f29c1e901.mp4",
+        "hls_url": "None",
+        "thumbnail_url": "/uploads/reels/1/thumbs/68d8ffb9b0e7434a952bbbc77ed100ef.jpg",
+        "caption": "Sad Reel Based On reality",
+        "duration_sec": "7",
+        "fk_cityId": "1",
+        "status": "APPROVED",
+        "rejection_reason": "None",
+        "reviewed_by": "None",
+        "reviewed_at": "None",
+        "view_count": "17",
+        "like_count": "1",
+        "comment_count": "0",
+        "is_deleted": "False",
+        "created_at": "2026-10-17 15:00:00.045427",
+        "updated_at": "2026-10-17 15:00:00.045427"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Reel_View",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_ViewId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_Reelid",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "Fk_UserId",
+        "type": "bigint",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "watched_seconds",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_ViewId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "Fk_Reelid",
+        "references_table": "dbo.Reel_Post",
+        "references_column": "Pk_ReelId"
+      }
+    ],
+    "sample_rows": [
+      {
+        "Pk_ViewId": "1",
+        "Fk_Reelid": "1",
+        "Fk_UserId": "1",
+        "watched_seconds": "3",
+        "created_at": "2026-10-04 14:49:33.704587"
+      },
+      {
+        "Pk_ViewId": "2",
+        "Fk_Reelid": "1",
+        "Fk_UserId": "2",
+        "watched_seconds": "3",
+        "created_at": "2026-10-04 15:45:02.741558"
+      },
+      {
+        "Pk_ViewId": "3",
+        "Fk_Reelid": "2",
+        "Fk_UserId": "2",
+        "watched_seconds": "3",
+        "created_at": "2026-10-04 15:46:21.641610"
+      }
+    ]
+  },
+  {
+    "table": "dbo.Report_Reason_mst",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_ReasonId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "reason_text",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 150
+      },
+      {
+        "name": "applies_to",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 10
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_ReasonId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_ReasonId": "1",
+        "reason_text": "Spam or misleading",
+        "applies_to": "ALL",
+        "is_active": "True"
+      },
+      {
+        "Pk_ReasonId": "2",
+        "reason_text": "Fake news",
+        "applies_to": "NEWS",
+        "is_active": "True"
+      },
+      {
+        "Pk_ReasonId": "3",
+        "reason_text": "Nudity or sexual content",
+        "applies_to": "ALL",
+        "is_active": "True"
+      }
+    ]
+  },
+  {
+    "table": "dbo.State_Mst",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_stateId",
+        "type": "int",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "state_name",
+        "type": "nvarchar",
+        "nullable": false,
+        "max_length": 100
+      },
+      {
+        "name": "is_active",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "Pk_stateId"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "Pk_stateId": "1",
+        "state_name": "Andhra Pradesh",
+        "is_active": "True"
+      },
+      {
+        "Pk_stateId": "2",
+        "state_name": "Arunachal Pradesh",
+        "is_active": "True"
+      },
+      {
+        "Pk_stateId": "3",
+        "state_name": "Assam",
+        "is_active": "True"
+      }
+    ]
+  },
+  {
+    "table": "dbo.User_Mst",
+    "description": "",
+    "columns": [
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "mobile",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "name",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 100
+      },
+      {
+        "name": "profile_photo_url",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "bio",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 300
+      },
+      {
+        "name": "FK_CityId",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "Fk_AreaId",
+        "type": "int",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "kyc_status",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 15
+      },
+      {
+        "name": "is_deleted",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "deleted_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "updated_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "last_login_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "user_id"
+    ],
+    "foreign_keys": [],
+    "sample_rows": [
+      {
+        "user_id": "1",
+        "mobile": "8115971723",
+        "name": "Ankit Kumar",
+        "profile_photo_url": "/uploads/profiles/1/f66b8d3141ad479685d7f488d7f3bb6e.jpg",
+        "bio": "Marayada Purushottam Ram",
+        "FK_CityId": "1",
+        "Fk_AreaId": "1",
+        "status": "ACTIVE",
+        "kyc_status": "NOT_REQUIRED",
+        "is_deleted": "False",
+        "deleted_at": "None",
+        "created_at": "2026-10-03 22:43:06.306426",
+        "updated_at": "2026-10-25 15:20:36.702162",
+        "last_login_at": "2026-10-25 15:20:36.702162"
+      },
+      {
+        "user_id": "2",
+        "mobile": "8382075792",
+        "name": "Raman Yadav",
+        "profile_photo_url": "None",
+        "bio": "None",
+        "FK_CityId": "2",
+        "Fk_AreaId": "8",
+        "status": "ACTIVE",
+        "kyc_status": "NOT_REQUIRED",
+        "is_deleted": "False",
+        "deleted_at": "None",
+        "created_at": "2026-10-04 15:44:59.231685",
+        "updated_at": "2026-10-04 15:44:59.313827",
+        "last_login_at": "2026-10-04 15:44:59.313827"
+      },
+      {
+        "user_id": "3",
+        "mobile": "7209073784",
+        "name": "Prince Ray",
+        "profile_photo_url": "None",
+        "bio": "None",
+        "FK_CityId": "1",
+        "Fk_AreaId": "3",
+        "status": "ACTIVE",
+        "kyc_status": "NOT_REQUIRED",
+        "is_deleted": "False",
+        "deleted_at": "None",
+        "created_at": "2026-10-17 15:02:19.766550",
+        "updated_at": "2026-10-25 18:14:49.390718",
+        "last_login_at": "2026-10-25 18:14:49.390718"
+      }
+    ]
+  },
+  {
+    "table": "dbo.User_RefreshToken",
+    "description": "",
+    "columns": [
+      {
+        "name": "Pk_TokenId",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "token_hash",
+        "type": "char",
+        "nullable": false,
+        "max_length": 64
+      },
+      {
+        "name": "device",
+        "type": "nvarchar",
+        "nullable": true,
+        "max_length": 100
+      },
+      {
+        "name": "expires_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "revoked_at",
+        "type": "datetime2",
+        "nullable": true,
+        "max_length": null
+      },
+      {
+        "name": "replaced_by_hash",
+        "type": "char",
+        "nullable": true,
+        "max_length": 64
+      }
+    ],
+    "primary_keys": [
+      "Pk_TokenId"
+    ],
+    "foreign_keys": [
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": []
+  },
+  {
+    "table": "dbo.user_session",
+    "description": "",
+    "columns": [
+      {
+        "name": "session_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "user_id",
+        "type": "bigint",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "refresh_token_hash",
+        "type": "varchar",
+        "nullable": false,
+        "max_length": 255
+      },
+      {
+        "name": "device_id",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 150
+      },
+      {
+        "name": "fcm_token",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 500
+      },
+      {
+        "name": "app_version",
+        "type": "varchar",
+        "nullable": true,
+        "max_length": 20
+      },
+      {
+        "name": "expires_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "is_revoked",
+        "type": "bit",
+        "nullable": false,
+        "max_length": null
+      },
+      {
+        "name": "created_at",
+        "type": "datetime2",
+        "nullable": false,
+        "max_length": null
+      }
+    ],
+    "primary_keys": [
+      "session_id"
+    ],
+    "foreign_keys": [
+      {
+        "column": "user_id",
+        "references_table": "dbo.User_Mst",
+        "references_column": "user_id"
+      }
+    ],
+    "sample_rows": []
+  }
+]
